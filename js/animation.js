@@ -230,9 +230,57 @@ $(document).ready(function() {
   counterInit();
 });
 
-
 $("body").on("mouseenter", ".btn-theme-outline", function(){
     $("#download").attr( 'src','./img/logo/download2.gif');
 }).on("mouseleave", ".btn-theme-outline", function(){
     $("#download").attr( 'src','./img/logo/download1.gif');
 });
+
+let arr = ["Developer","Engineer","Designer","Creator"];
+let i = 0;
+let j = 0;
+let flag = false;
+function changeName(){
+  let name = $(".typed-name").text();
+  if(flag){
+    fromStart();
+  }else{
+    fromEnd();
+  }
+}
+
+function fromEnd(){
+  let name = $(".typed-name").text();
+  name = name.slice(0, -1);
+  $(".typed-name").text(name);
+  if(name.length == 0){
+    flag = true;
+    if(i==3){
+      i = 0;
+    }else{
+      i++;
+    }
+  }
+}
+
+function fromStart(){
+  let name = $(".typed-name").text();
+  let str = arr[i];
+  name = str.slice(0, j);
+  $(".typed-name").text(name);
+  if(name.length == str.length){
+    flag = false;
+    j = 0;
+    clearInterval(interval)
+    setTimeout(()=>{
+      interval = setInterval(changeName, 150);
+    },2000)
+  }
+  j++;
+}
+
+let interval = null;
+setTimeout(()=>{
+  interval = setInterval(changeName, 150);
+},2000)
+
