@@ -231,9 +231,9 @@ $(document).ready(function() {
 });
 
 $("body").on("mouseenter", ".btn-theme-outline", function(){
-    $("#download").attr( 'src','./img/logo/download2.gif');
+    $("#download").attr( 'src','./img/icons/download2.gif');
 }).on("mouseleave", ".btn-theme-outline", function(){
-    $("#download").attr( 'src','./img/logo/download1.gif');
+    $("#download").attr( 'src','./img/icons/download1.gif');
 });
 
 let arr = ["Developer","Engineer","Designer","Creator"];
@@ -284,3 +284,6 @@ setTimeout(()=>{
   interval = setInterval(changeName, 150);
 },2000)
 
+function scrollAbout(){
+  $("#s_about").click();
+}
